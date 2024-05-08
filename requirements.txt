@@ -1,0 +1,4 @@
+flask
+pyJWT
+argon2-cffi
+Flask-SQLAlchemy

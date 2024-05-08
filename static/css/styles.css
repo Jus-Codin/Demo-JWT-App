@@ -1,0 +1,23 @@
+html,
+body {
+  height: 100%;
+}
+
+.bi {
+  vertical-align: -.125em;
+  fill: currentColor;
+}
+
+.bd-mode-toggle {
+  z-index: 1500;
+}
+
+.bd-mode-toggle .dropdown-menu .active .bi {
+  display: block !important;
+}
+
+pre {
+  min-height: 7em;
+  border-style: solid;
+  border-width: 1px;
+}

@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}Demo App{% endblock %}
+
+{% block head_extra %}
+<style>
+  .form-signin {
+    max-width: 330px;
+    padding: 1rem;
+  }
+
+  .form-signin .form-floating:focus-within {
+    z-index: 2;
+  }
+
+  .form-signin input[type="text"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+</style>
+
+<script src="/static/js/form_events.js"></script>
+{% endblock %}
+
+{% block nav_items %}
+<li class="nav-item">
+  <a class="nav-link active" href="/" aria-current="page">Home</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="/user_only">User Only</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="/admin_only">Admin Only</a>
+</li>
+
+{% if user is not none %}
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    {{ user.username }}
+  </a>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="/logout">Logout</a></li>
+  </ul>
+</li>
+{% endif %}
+{% endblock %}
+
+{% block main %}
+<div id="toast-wrapper" class="toast-container position-fixed top-0 end-0 p-3"></div>
+
+<main class="form-signin w-100 m-auto">
+  <form onsubmit="return false;">
+    <h1 class="h3 mb-3 fw-normal">Registration</h1>
+
+    <div class="form-floating">
+      <input type="text" class="form-control" id="floatingInput" placeholder="Username">
+      <label for="floatingInput">Username</label>
+    </div>
+    <div class="form-floating">
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <label for="floatingPassword">Password</label>
+    </div>
+
+    <!-- Show 2 buttons side by side, one for registering and one for signing in -->
+    <div class="d-grid gap-2 d-md-flex justify-content-md-between">
+      <button class="btn btn-primary w-100 py-2" onclick="register()">Register</button>
+      <button class="btn btn-primary w-100 py-2" onclick="login()">Sign in</button>
+    </div>
+  </form>
+</main>
+{% endblock %}
