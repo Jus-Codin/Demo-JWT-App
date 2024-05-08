@@ -7,7 +7,7 @@ The frontend was built with [Bootstrap](https://getbootstrap.com/) and the backe
 
 1. Clone the repository
 2. Install the dependencies with `pip install -r requirements.txt`
-3. Run the app with `python app.py`
+3. Run the app with `flask run --host="0.0.0.0" --port=1337`
 
 ## Credentials
 1. Username: `admin`, Password: `password`
